@@ -109,3 +109,57 @@ while (valorWhile < 5) {
   log(`Meu valor no loop: ${valorWhile}`);
   valorWhile++;
 }
+
+//Funções Assincronas permitem executar operações
+// sem bloquear a execução do codigo
+async function buscarDados() {
+  return new Promise(resolve => {
+    setTimeout (() => resolve("Dados Recebidos"), 4*1000);
+  });
+}
+
+async function executarBusca() {
+  log("Buscando...");
+
+  let resultado = await buscarDados();
+
+  log(resultado);
+  
+}
+
+executarBusca();
+
+const meuMeutodo = function exemploMetodo() {
+  log("Executei por metodo normal");
+}
+
+log(meuMeutodo);
+
+const objTeste = {
+  oi(){
+    log("OI");
+  },
+  xau(){
+    log("XAU");
+  }
+};
+
+objTeste.oi();
+objTeste.xau();
+
+
+
+//Manipulação do DOM
+//Aqui criamos um elemento dinamicamente e o adicionamos
+// ao corpo da pagina
+document.addEventListener("DOMContentLoaded", () => {
+  let titulo = document.createElement("h2");
+  titulo.innerText = "Ola DOM";
+    document.body.appendChild(titulo);
+});
+
+
+function toggleImage() {
+  let img =document.getElementById("MinhaImagem")
+  img.style.display = img.style.display === "none" ? "Block" : "none";  
+}
